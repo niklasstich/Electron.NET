@@ -14,7 +14,7 @@ namespace ElectronNET.API
     /// <summary>
     /// Create and control browser windows.
     /// </summary>
-    public class BrowserWindow
+    public class BrowserWindow : IBrowserWindow
     {
         /// <summary>
         /// Gets the identifier.
@@ -2253,9 +2253,9 @@ namespace ElectronNET.API
         /// The parent window.
         /// </summary>
         /// <returns></returns>
-        public Task<BrowserWindow> GetParentWindowAsync()
+        public Task<IBrowserWindow> GetParentWindowAsync()
         {
-            var taskCompletionSource = new TaskCompletionSource<BrowserWindow>();
+            var taskCompletionSource = new TaskCompletionSource<IBrowserWindow>();
 
             BridgeConnector.Socket.On("browserWindow-getParentWindow-completed", (id) => {
                 BridgeConnector.Socket.Off("browserWindow-getParentWindow-completed");
@@ -2274,14 +2274,14 @@ namespace ElectronNET.API
         /// All child windows.
         /// </summary>
         /// <returns></returns>
-        public Task<List<BrowserWindow>> GetChildWindowsAsync()
+        public Task<List<IBrowserWindow>> GetChildWindowsAsync()
         {
-            var taskCompletionSource = new TaskCompletionSource<List<BrowserWindow>>();
+            var taskCompletionSource = new TaskCompletionSource<List<IBrowserWindow>>();
 
             BridgeConnector.Socket.On("browserWindow-getChildWindows-completed", (ids) => {
                 BridgeConnector.Socket.Off("browserWindow-getChildWindows-completed");
                 var browserWindowIds = ((JArray)ids).ToObject<int[]>();
-                var browserWindows = new List<BrowserWindow>();
+                var browserWindows = new List<IBrowserWindow>();
 
                 browserWindowIds.ToList().ForEach(id =>
                 {

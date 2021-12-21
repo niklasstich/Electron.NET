@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -63,7 +62,7 @@ namespace ElectronNET.API
         /// <value>
         /// The browser windows.
         /// </value>
-        public IReadOnlyCollection<BrowserWindow> BrowserWindows { get { return _browserWindows.AsReadOnly(); } }
+        public IReadOnlyCollection<IBrowserWindow> BrowserWindows { get { return _browserWindows.AsReadOnly(); } }
         private List<BrowserWindow> _browserWindows = new List<BrowserWindow>();
 
         /// <summary>

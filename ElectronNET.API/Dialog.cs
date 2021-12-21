@@ -79,7 +79,7 @@ namespace ElectronNET.API
         /// <param name="browserWindow">The browserWindow argument allows the dialog to attach itself to a parent window, making it modal.</param>
         /// <param name="options"></param>
         /// <returns>Returns String, the path of the file chosen by the user, if a callback is provided it returns an empty string.</returns>
-        public Task<string> ShowSaveDialogAsync(BrowserWindow browserWindow, SaveDialogOptions options)
+        public Task<string> ShowSaveDialogAsync(IBrowserWindow browserWindow, SaveDialogOptions options)
         {
             var taskCompletionSource = new TaskCompletionSource<string>();
             string guid = Guid.NewGuid().ToString();

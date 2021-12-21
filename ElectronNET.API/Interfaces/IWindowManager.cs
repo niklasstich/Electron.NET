@@ -23,7 +23,7 @@ namespace ElectronNET.API.Interfaces
         /// <value>
         /// The browser windows.
         /// </value>
-        IReadOnlyCollection<BrowserWindow> BrowserWindows { get; }
+        IReadOnlyCollection<IBrowserWindow> BrowserWindows { get; }
 
         /// <summary>
         /// Gets the browser views.

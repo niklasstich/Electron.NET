@@ -24,7 +24,7 @@ namespace ElectronNET.API.Interfaces
         /// <param name="browserWindow">The browserWindow argument allows the dialog to attach itself to a parent window, making it modal.</param>
         /// <param name="options"></param>
         /// <returns>Returns String, the path of the file chosen by the user, if a callback is provided it returns an empty string.</returns>
-        Task<string> ShowSaveDialogAsync(BrowserWindow browserWindow, SaveDialogOptions options);
+        Task<string> ShowSaveDialogAsync(IBrowserWindow browserWindow, SaveDialogOptions options);
 
         /// <summary>
         /// Shows a message box, it will block the process until the message box is closed.
